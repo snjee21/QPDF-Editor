@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>QPDFEditor</AssemblyName>
+	<Version>2.3.0</Version>
+	<AssemblyVersion>2.3.0.0</AssemblyVersion>
+	<FileVersion>2.3.0.0</FileVersion>
+	<InformationalVersion>2.3.0</InformationalVersion>
+    <RootNamespace>QPDFEditor</RootNamespace>
+    <ApplicationIcon>Assets\app_icon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
+	<Company>EDS Corp</Company>
+	<Product>QPDF 편집기</Product>
+	<Description>경량 PDF 편집 및 주석 도구</Description>
+	<Authors>Jee Sungnam (snjee@live.co.kr)</Authors>
+  <Copyright>Copyright © 2026 Jee Sungnam (snjee@live.co.kr)</Copyright>
+  <PackageIcon>app_icon_256.png</PackageIcon>
+    <Manufacturer>EDS Corp</Manufacturer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- PDF rendering via PDFium (cross-platform) -->
+    <PackageReference Include="Docnet.Core" Version="2.6.0" />
+    <PackageReference Include="itext" Version="9.6.0" />
+    <PackageReference Include="itext.bouncy-castle-adapter" Version="9.6.0" />
+    <PackageReference Include="itext.commons" Version="9.6.0" />
+    <PackageReference Include="itext.font-asian" Version="9.6.0" />
+    <PackageReference Include="itext.pdfcalligraph" Version="5.0.6" />
+    <PackageReference Include="itext.pdfhtml" Version="6.3.2" />
+    <PackageReference Include="itext.pdfoptimizer" Version="4.1.3" />
+    <PackageReference Include="itext.pdfsweep" Version="5.0.6" />
+    <PackageReference Include="itext.pdfxfa" Version="5.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <!-- PDF text extraction and editing -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\app_icon_256.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

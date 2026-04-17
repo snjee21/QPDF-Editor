@@ -1,0 +1,112 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj": {}
+  },
+  "projects": {
+    "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj": {
+      "version": "2.3.0",
+      "restore": {
+        "projectUniqueName": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj",
+        "projectName": "QPDFEditor",
+        "projectPath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj",
+        "packagesPath": "C:\\Users\\snjee\\.nuget\\packages\\",
+        "outputPath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\snjee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 24.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 24.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Docnet.Core": {
+              "target": "Package",
+              "version": "[2.6.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            },
+            "itext": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "itext.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "itext.commons": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "itext.font-asian": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "itext.pdfcalligraph": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "itext.pdfhtml": {
+              "target": "Package",
+              "version": "[6.3.2, )"
+            },
+            "itext.pdfoptimizer": {
+              "target": "Package",
+              "version": "[4.1.3, )"
+            },
+            "itext.pdfsweep": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "itext.pdfxfa": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
