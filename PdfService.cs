@@ -18,6 +18,9 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Path = System.IO.Path;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 namespace QPDFEditor {
   public sealed class PdfService : IDisposable {

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2026 Jee Sungnam (snjee@live.co.kr)")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("경량 PDF 편집 및 주석 도구")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.3.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.3.0+03d02a605b665834e42e2bdd7b50917e98558ff9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.3.0+ed8bb0e1e8f9f424717a90efb1d83742316da203")]
 [assembly: System.Reflection.AssemblyProductAttribute("QPDF 편집기")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QPDFEditor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.3.0.0")]

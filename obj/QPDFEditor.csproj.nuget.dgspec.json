@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj": {}
+    "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\QPDFEditor.csproj": {}
   },
   "projects": {
-    "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj": {
+    "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\QPDFEditor.csproj": {
       "version": "2.3.0",
       "restore": {
-        "projectUniqueName": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj",
+        "projectUniqueName": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\QPDFEditor.csproj",
         "projectName": "QPDFEditor",
-        "projectPath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj",
+        "projectPath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\QPDFEditor.csproj",
         "packagesPath": "C:\\Users\\snjee\\.nuget\\packages\\",
-        "outputPath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\obj\\",
+        "outputPath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages",

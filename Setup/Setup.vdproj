@@ -15,19 +15,25 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0C795A1E30304CAB8512A901C324A3F6"
+        "MsmKey" = "8:_237C3A6E37DA4BB9BD12CE825BC70AF0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3106549CEF874FEE921458CB063332DF"
+        "MsmKey" = "8:_28DC419F445C4344AC519D0BEABB8A3A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3561717CAEA14682AACD92F76D44179F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B2D466154EBA4E77BD171CDCB96A81D5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -118,9 +124,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C795A1E30304CAB8512A901C324A3F6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_237C3A6E37DA4BB9BD12CE825BC70AF0"
             {
-            "SourcePath" = "8:..\\app_icon.ico"
+            "SourcePath" = "8:..\\Assets\\app_icon.ico"
             "TargetName" = "8:app_icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_DABF2331FFEB4B06ABD2663D3A2351DD"
@@ -138,10 +144,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3106549CEF874FEE921458CB063332DF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_28DC419F445C4344AC519D0BEABB8A3A"
             {
-            "SourcePath" = "8:..\\EDSCorp_Logo.jpg"
-            "TargetName" = "8:EDSCorp_Logo.jpg"
+            "SourcePath" = "8:..\\Assets\\EDS_Logo.jpg"
+            "TargetName" = "8:EDS_Logo.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_DABF2331FFEB4B06ABD2663D3A2351DD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B2D466154EBA4E77BD171CDCB96A81D5"
+            {
+            "SourcePath" = "8:..\\Assets\\EDS_Logo_Setup.jpg"
+            "TargetName" = "8:EDS_Logo_Setup.jpg"
             "Tag" = "8:"
             "Folder" = "8:_DABF2331FFEB4B06ABD2663D3A2351DD"
             "Condition" = "8:"
@@ -215,7 +241,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:QPDF 편집기"
         "ProductCode" = "8:{A35C657B-D45A-4D2A-90FE-F39B29BD827C}"
-        "PackageCode" = "8:{55357B79-C3A8-45E5-8554-3BB544076622}"
+        "PackageCode" = "8:{590AFF40-D299-4F68-A9A5-AE8B284C4944}"
         "UpgradeCode" = "8:{AE7AA463-761F-4DD1-8D81-D75F6C7BFC50}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -440,7 +466,7 @@
             "Target" = "8:_3561717CAEA14682AACD92F76D44179F"
             "Folder" = "8:_6F689AD8DAC04A3E953DC9CAF2E19E46"
             "WorkingFolder" = "8:_DABF2331FFEB4B06ABD2663D3A2351DD"
-            "Icon" = "8:_0C795A1E30304CAB8512A901C324A3F6"
+            "Icon" = "8:_237C3A6E37DA4BB9BD12CE825BC70AF0"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F39609B206A446888FF96B3EF3CB8098"
@@ -454,7 +480,7 @@
             "Target" = "8:_3561717CAEA14682AACD92F76D44179F"
             "Folder" = "8:_2BDF643D234F44858F024BA58A3E3F07"
             "WorkingFolder" = "8:_DABF2331FFEB4B06ABD2663D3A2351DD"
-            "Icon" = "8:_0C795A1E30304CAB8512A901C324A3F6"
+            "Icon" = "8:_237C3A6E37DA4BB9BD12CE825BC70AF0"
             "Feature" = "8:"
             }
         }
@@ -485,7 +511,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Value" = "8:_B2D466154EBA4E77BD171CDCB96A81D5"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -535,8 +561,7 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Setting" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -580,8 +605,7 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Setting" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -603,8 +627,7 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Setting" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -652,8 +675,7 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Setting" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -684,8 +706,7 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Setting" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -717,7 +738,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Value" = "8:_B2D466154EBA4E77BD171CDCB96A81D5"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -766,7 +787,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Value" = "8:_B2D466154EBA4E77BD171CDCB96A81D5"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -789,7 +810,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Value" = "8:_B2D466154EBA4E77BD171CDCB96A81D5"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "InstallAllUsersVisible"
@@ -840,7 +861,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_3106549CEF874FEE921458CB063332DF"
+                            "Value" = "8:_B2D466154EBA4E77BD171CDCB96A81D5"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "UpdateText"
@@ -868,7 +889,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3561717CAEA14682AACD92F76D44179F"
             {
-            "SourcePath" = "8:..\\obj\\x64\\Release\\net48\\QPDFEditor.exe"
+            "SourcePath" = "8:..\\obj\\x64\\Debug\\net48\\QPDFEditor.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DABF2331FFEB4B06ABD2663D3A2351DD"

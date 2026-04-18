@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OVVu5ZBPlm8=",
+  "dgSpecHash": "CiMt1zg7sZ8=",
   "success": true,
-  "projectFilePath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDFEditor_net48\\QPDFEditor.csproj",
+  "projectFilePath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\QPDFEditor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\snjee\\.nuget\\packages\\antlr\\3.4.1.9004\\antlr.3.4.1.9004.nupkg.sha512",
     "C:\\Users\\snjee\\.nuget\\packages\\antlr4.runtime\\4.5.3\\antlr4.runtime.4.5.3.nupkg.sha512",

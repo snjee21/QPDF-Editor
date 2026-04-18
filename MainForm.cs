@@ -1906,7 +1906,7 @@ namespace QPDFEditor {
 
         // 1. 로고 이미지 (리소스에서 가져오기)
         PictureBox logo = new PictureBox {
-          Image = Resources.EDSCorp_Logo, // 리소스에 등록된 이름
+          Image = Resources.EDS_Logo, // 리소스에 등록된 이름
           SizeMode = PictureBoxSizeMode.Zoom,
           Location = new Point(20, 20),
           Size = new Size(168, 47) /* 672 X 185 */
