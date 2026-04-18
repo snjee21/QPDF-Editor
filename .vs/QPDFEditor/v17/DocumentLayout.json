@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\pdfpageview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:pdfpageview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\mainform.recentfiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:mainform.recentfiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\progressdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:progressdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\uicommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:uicommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
@@ -23,12 +31,16 @@
       "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\mainform.recentfiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:mainform.recentfiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|e:\\synologydrive\\myworkingprjs\\edscorp\\004.utils\\qpdf-editor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C43E2165-7D4D-0B30-4456-FB7AB35B4D74}|QPDFEditor.csproj|E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -42,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +82,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "PdfPageView.cs",
+              "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\PdfPageView.cs",
+              "RelativeDocumentMoniker": "PdfPageView.cs",
+              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\PdfPageView.cs*",
+              "RelativeToolTip": "PdfPageView.cs*",
+              "ViewState": "AgIAALUDAAAAAAAAAAD4v8gDAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T05:18:02.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProgressDialog.cs",
+              "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\ProgressDialog.cs",
+              "RelativeDocumentMoniker": "ProgressDialog.cs",
+              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\ProgressDialog.cs",
+              "RelativeToolTip": "ProgressDialog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T05:11:34.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UICommands.cs",
+              "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\UICommands.cs",
+              "RelativeDocumentMoniker": "UICommands.cs",
+              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\UICommands.cs",
+              "RelativeToolTip": "UICommands.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T04:56:42.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "Properties\\Resources.resx",
+              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\Properties\\Resources.resx",
+              "RelativeToolTip": "Properties\\Resources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-04-18T04:53:07.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainForm.RecentFiles.cs",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.RecentFiles.cs",
               "RelativeDocumentMoniker": "MainForm.RecentFiles.cs",
@@ -83,55 +146,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Resources.resx",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "Properties\\Resources.resx",
               "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\Properties\\Resources.resx",
               "RelativeToolTip": "Properties\\Resources.resx",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAuwJMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2026-04-17T05:04:59.284Z"
+              "WhenOpened": "2026-04-17T05:04:49.07Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Resources.resx",
-              "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\Properties\\Resources.resx",
-              "RelativeDocumentMoniker": "Properties\\Resources.resx",
-              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\Properties\\Resources.resx",
-              "RelativeToolTip": "Properties\\Resources.resx",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAAAJMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2026-04-17T05:04:49.07Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "MainForm.Designer.cs",
               "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.Designer.cs",
               "RelativeToolTip": "MainForm.Designer.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAEBlwFsAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABECAAAAAAAAAAAswCQCAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-05T03:25:55.971Z"
+              "WhenOpened": "2026-04-05T03:25:55.971Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainForm.cs",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAGIIAAAAAAAAAAAiwFICAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIIAAAAAAAAAAAswCUIAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-05T03:24:57.955Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -143,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "PdfService.cs",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\PdfService.cs",
               "RelativeDocumentMoniker": "PdfService.cs",
@@ -155,14 +209,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MainForm.cs [Design]",
+              "DocumentIndex": 10,
+              "Title": "MainForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
-              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs [Design]",
-              "RelativeToolTip": "MainForm.cs [Design]",
+              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "MainForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-05T03:24:51.205Z"
+              "WhenOpened": "2026-04-05T03:24:51.205Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             }
           ]
         },

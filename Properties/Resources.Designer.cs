@@ -151,6 +151,177 @@ namespace QPDFEditor.Properties {
         }
         
         /// <summary>
+        ///   ✕과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Find_Close {
+            get {
+                return ResourceManager.GetString("Find_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   모두 찾기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Find_FindAll {
+            get {
+                return ResourceManager.GetString("Find_FindAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   찾기:과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Find_LabelFind {
+            get {
+                return ResourceManager.GetString("Find_LabelFind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   바꾸기:과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Find_LabelReplace {
+            get {
+                return ResourceManager.GetString("Find_LabelReplace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   대소문자 구분과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Find_MatchCase {
+            get {
+                return ResourceManager.GetString("Find_MatchCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   모두 바꾸기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Find_ReplaceAll {
+            get {
+                return ResourceManager.GetString("Find_ReplaceAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   정보(&amp;A)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuAbout {
+            get {
+                return ResourceManager.GetString("MenuAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   편집(&amp;E)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuEdit {
+            get {
+                return ResourceManager.GetString("MenuEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   종료(&amp;X)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuExit {
+            get {
+                return ResourceManager.GetString("MenuExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   파일(&amp;F)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuFile {
+            get {
+                return ResourceManager.GetString("MenuFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   찾기 / 바꾸기(&amp;H)  Ctrl+H과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuFindReplace {
+            get {
+                return ResourceManager.GetString("MenuFindReplace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   도움말(&amp;?)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuHelp {
+            get {
+                return ResourceManager.GetString("MenuHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   사용 방법(&amp;H)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuHowToUse {
+            get {
+                return ResourceManager.GetString("MenuHowToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   열기(&amp;O)  Ctrl+O과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuOpen {
+            get {
+                return ResourceManager.GetString("MenuOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   모든 변경 사항 되돌리기(&amp;Z)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuRevertAll {
+            get {
+                return ResourceManager.GetString("MenuRevertAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   저장(&amp;S)  Ctrl+S과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuSave {
+            get {
+                return ResourceManager.GetString("MenuSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   다른 이름으로 저장(&amp;A)  Ctrl+Shift+S과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuSaveAs {
+            get {
+                return ResourceManager.GetString("MenuSaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   보기(&amp;V)과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MenuView {
+            get {
+                return ResourceManager.GetString("MenuView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   PDF 파일을 열어주세요. 파란 영역을 클릭하면 텍스트를 수정할 수 있습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Status_Default {
+            get {
+                return ResourceManager.GetString("Status_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static System.Drawing.Bitmap text_16 {
@@ -177,6 +348,87 @@ namespace QPDFEditor.Properties {
             get {
                 object obj = ResourceManager.GetObject("text_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   🔍 찾기/바꾸기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarFind {
+            get {
+                return ResourceManager.GetString("ToolbarFind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ▶과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarNext {
+            get {
+                return ResourceManager.GetString("ToolbarNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   📂 열기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarOpen {
+            get {
+                return ResourceManager.GetString("ToolbarOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   – / –과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarPageLabelDefault {
+            get {
+                return ResourceManager.GetString("ToolbarPageLabelDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ◀과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarPrev {
+            get {
+                return ResourceManager.GetString("ToolbarPrev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ↺ 되돌리기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarRevert {
+            get {
+                return ResourceManager.GetString("ToolbarRevert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   💾 저장과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarSave {
+            get {
+                return ResourceManager.GetString("ToolbarSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   📋 다른 이름으로과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarSaveAs {
+            get {
+                return ResourceManager.GetString("ToolbarSaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   확대: 과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ToolbarZoomLabel {
+            get {
+                return ResourceManager.GetString("ToolbarZoomLabel", resourceCulture);
             }
         }
     }

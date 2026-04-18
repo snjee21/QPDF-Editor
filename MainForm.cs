@@ -4,11 +4,14 @@ using QPDFEditor.Properties;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace QPDFEditor {
   public partial class MainForm : Form {
@@ -59,6 +62,8 @@ namespace QPDFEditor {
     private ToolStripButton? _btnPageInsert;
     private ContextMenuStrip? _thumbContextMenu;
 
+    private readonly CommandManager _commands = new CommandManager();
+
     private readonly struct ScrollSnapshot {
       public readonly float XRatio;
       public readonly float YRatio;
@@ -94,6 +99,7 @@ namespace QPDFEditor {
 
       _toolbar.Renderer = new DarkToolStripRenderer();
       EnsureEditingUi();
+      InitializeUiCommands();
       _cmbZoom.SelectedItem = "100%";
       InitializeZoomUi();
       SetZoomText("100%");
@@ -151,6 +157,32 @@ namespace QPDFEditor {
       Load += (_, _) => AdjustFindPanelLayout();
       Resize += (_, _) => AdjustFindPanelLayout();
       FontChanged += (_, _) => AdjustFindPanelLayout();
+    }
+
+    // MainForm.cs 생성자 중 적절한 위치 (EnsureEditingUi() 호출 후)
+    void InitializeUiCommands() {
+      // Undo / Redo 커맨드 (EditHistory 사용)
+      _commands.Register(new UICommand("Undo", "실행 취소", () => {
+        if (_history.CanUndo) _history.Undo();
+      }, () => _history.CanUndo));
+
+      _commands.Register(new UICommand("Redo", "다시 실행", () => {
+        if (_history.CanRedo) _history.Redo();
+      }, () => _history.CanRedo));
+
+      // 바인딩 (메뉴/툴바 항목이 null이 아닐 때만)
+      if (_miUndo != null) _commands["Undo"].BindTo(_miUndo);
+      if (_miRedo != null) _commands["Redo"].BindTo(_miRedo);
+      if (_btnUndo != null) _commands["Undo"].BindTo(_btnUndo);
+      if (_btnRedo != null) _commands["Redo"].BindTo(_btnRedo);
+
+      // history 상태 변경 시 Command 상태 갱신
+      _history.Changed += (_, _) => {
+        _commands.RaiseCanExecuteChanged("Undo");
+        _commands.RaiseCanExecuteChanged("Redo");
+        // 기존 UI 업데이트도 유지(단계적 마이그레이션용)
+        UpdateUndoRedoButtons();
+      };
     }
 
     private int ScaleForDpi(int value) => Math.Max(1, (int)Math.Round(value * (DeviceDpi / 96f)));
@@ -245,7 +277,7 @@ namespace QPDFEditor {
         Dock = DockStyle.Fill,
         Orientation = Orientation.Vertical,
         SplitterWidth = 4,
-        BackColor = System.Drawing.Color.FromArgb(25, 25, 35),
+        BackColor = Color.FromArgb(25, 25, 35),
         // FixedPanel, Panel1MinSize, Panel2MinSize, SplitterDistance 는
         // 모두 Form.Load 이벤트에서 설정 — 여기서 설정하면 Width=0 으로 예외 발생
       };
@@ -262,23 +294,23 @@ namespace QPDFEditor {
       // ── 좌측 썸네일 패널 ──────────────────────────────────────
       _thumbnailPanel = new Panel {
         Dock = DockStyle.Fill,
-        BackColor = System.Drawing.Color.FromArgb(30, 30, 40),
+        BackColor = Color.FromArgb(30, 30, 40),
       };
 
       var thumbLabel = new Label {
         Text = "페이지 목록",
         Dock = DockStyle.Top,
         Height = 26,
-        ForeColor = System.Drawing.Color.FromArgb(180, 180, 180),
-        BackColor = System.Drawing.Color.FromArgb(20, 20, 30),
-        TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
-        Font = new System.Drawing.Font("Malgun Gothic", 9f, System.Drawing.FontStyle.Bold),
+        ForeColor = Color.FromArgb(180, 180, 180),
+        BackColor = Color.FromArgb(20, 20, 30),
+        TextAlign = ContentAlignment.MiddleCenter,
+        Font = new System.Drawing.Font("Malgun Gothic", 9f, FontStyle.Bold),
       };
 
       _thumbnailList = new ListBox {
         Dock = DockStyle.Fill,
-        BackColor = System.Drawing.Color.FromArgb(30, 30, 40),
-        ForeColor = System.Drawing.Color.FromArgb(200, 200, 210),
+        BackColor = Color.FromArgb(30, 30, 40),
+        ForeColor = Color.FromArgb(200, 200, 210),
         BorderStyle = BorderStyle.None,
         DrawMode = DrawMode.OwnerDrawFixed,
         ItemHeight = 130,
@@ -518,8 +550,8 @@ namespace QPDFEditor {
     private void BuildToggleEditButton() {
       _btnToggleEdit = new ToolStripButton {
         Text = "✏️  편집 모드로",
-        ForeColor = System.Drawing.Color.FromArgb(80, 220, 120),
-        Font = new System.Drawing.Font("Malgun Gothic", 9.5f, System.Drawing.FontStyle.Bold),
+        ForeColor = Color.FromArgb(80, 220, 120),
+        Font = new System.Drawing.Font("Malgun Gothic", 9.5f, FontStyle.Bold),
         CheckOnClick = true,
         Checked = false,
         Enabled = false,
@@ -548,9 +580,9 @@ namespace QPDFEditor {
 
       // 배경
       var bgColor = selected
-          ? (_isEditMode ? System.Drawing.Color.FromArgb(40, 100, 60) : System.Drawing.Color.FromArgb(30, 60, 120))
-          : System.Drawing.Color.FromArgb(35, 35, 48);
-      using (var bgBrush = new System.Drawing.SolidBrush(bgColor))
+          ? (_isEditMode ? Color.FromArgb(40, 100, 60) : Color.FromArgb(30, 60, 120))
+          : Color.FromArgb(35, 35, 48);
+      using (var bgBrush = new SolidBrush(bgColor))
         g.FillRectangle(bgBrush, r);
 
       bool drawInsertTop = _thumbnailDropActive && _thumbnailDropInsertIndex == e.Index;
@@ -559,7 +591,7 @@ namespace QPDFEditor {
                               e.Index == _pdfService.TotalPages - 1;
 
       if (drawInsertTop || drawInsertBottom) {
-        using (var insertPen = new System.Drawing.Pen(System.Drawing.Color.FromArgb(255, 196, 72), 3f)) {
+        using (var insertPen = new Pen(Color.FromArgb(255, 196, 72), 3f)) {
           int y = drawInsertTop ? (r.Top + 1) : (r.Bottom - 2);
           g.DrawLine(insertPen, r.Left + 6, y, r.Right - 6, y);
         }
@@ -577,16 +609,16 @@ namespace QPDFEditor {
         g.DrawImage(thumb, new System.Drawing.Rectangle(tx, ty, tw, th));
 
         // 흰 테두리
-        using var borderPen = new System.Drawing.Pen(selected
-            ? System.Drawing.Color.FromArgb(80, 180, 120)
-            : System.Drawing.Color.FromArgb(70, 70, 90), 1.5f);
+        using var borderPen = new Pen(selected
+            ? Color.FromArgb(80, 180, 120)
+            : Color.FromArgb(70, 70, 90), 1.5f);
         g.DrawRectangle(borderPen, new System.Drawing.Rectangle(tx - 1, ty - 1, tw + 1, th + 1));
       }
 
       // 페이지 번호 레이블
       using var numFont = new System.Drawing.Font("Malgun Gothic", 8f);
-      using var numBrush = new System.Drawing.SolidBrush(selected
-          ? System.Drawing.Color.White : System.Drawing.Color.FromArgb(160, 160, 170));
+      using var numBrush = new SolidBrush(selected
+          ? Color.White : Color.FromArgb(160, 160, 170));
       var numStr = $"  {e.Index + 1} / {_pdfService.TotalPages}";
       g.DrawString(numStr, numFont, numBrush, r.X, r.Bottom - 18);
     }
@@ -1137,7 +1169,7 @@ namespace QPDFEditor {
     private Image CreateHelpIcon() {
       var bmp = NewIconBitmap();
       using var g = Graphics.FromImage(bmp);
-      g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+      g.TextRenderingHint = TextRenderingHint.AntiAlias;
       using var font = new Font("Segoe UI", 11f, FontStyle.Bold, GraphicsUnit.Pixel);
       using var brush = new SolidBrush(Color.FromArgb(116, 129, 213));
       g.DrawString("?", font, brush, new RectangleF(2, 1, 16, 16),
@@ -1359,11 +1391,58 @@ namespace QPDFEditor {
       } catch (Exception ex) { Msg($"파일 열기 오류:\n{ex.Message}", err: true); } finally { UseWaitCursor = false; }
     }
 
-    private void OnSave(object s, EventArgs e) {
-      if (_pdfService.FilePath == "") return;
+    private async void OnSave(object s, EventArgs e) {
+      if (string.IsNullOrEmpty(_pdfService.FilePath)) return;
       CommitPendingEdits();
-      string savePath = _pdfService.FilePath + ".~saving.pdf";
-      DoSave(savePath, overwrite: true, finalPath: _pdfService.FilePath);
+
+      string tempPath = _pdfService.FilePath + ".~saving.pdf";
+      string finalPath = _pdfService.FilePath;
+
+      try {
+        UseWaitCursor = true;
+
+        await RunOperationWithProgressAsync<object>(async (progress, ct) => {
+          progress.Report(new ProgressInfo { Percent = -1, Message = "파일 저장 중..." });
+
+          // _pdfService.Save는 동기 API라면 Task.Run으로 실행
+          var result = await Task.Run(() => {
+            // Save 메서드가 반환하는 튜플을 예시로 사용
+            return _pdfService.Save(tempPath);
+          }, ct);
+
+          // 파일 교체는 I/O이므로 백그라운드에서 수행해도 좋음
+          if (ct.IsCancellationRequested) throw new OperationCanceledException(ct);
+
+          await Task.Run(() => {
+            if (File.Exists(finalPath)) File.Delete(finalPath);
+            File.Move(tempPath, finalPath);
+          }, ct);
+
+          // UI 상태 갱신은 작업 완료 후 UI 스레드에서 수행
+          return (object?)null;
+        }, "저장 중");
+
+        // 작업 성공 후 UI 갱신
+        _pdfService.AcceptAllEdits();
+        _pdfService.SetCurrentFilePath(finalPath);
+        _history.Clear();
+
+        Text = _isEditMode
+            ? $"PDF 편집기  [편집]  —  {Path.GetFileName(finalPath)}"
+            : $"PDF 편집기  [보기]  —  {Path.GetFileName(finalPath)}";
+
+        RenderCurrentPage(resetScroll: false);
+        RefreshThumbnails();
+        UpdateModifiedLabel();
+        SetStatus($"저장 완료  ✓  |  {finalPath}");
+        Msg("저장 완료!");
+      } catch (OperationCanceledException) {
+        SetStatus("작업이 취소되었습니다.");
+      } catch (Exception ex) {
+        Msg($"저장 오류:\n{ex.Message}", err: true);
+      } finally {
+        UseWaitCursor = false;
+      }
     }
 
     private void OnSaveAs(object s, EventArgs e) {
@@ -1509,8 +1588,8 @@ namespace QPDFEditor {
       if (_btnToggleEdit != null) {
         _btnToggleEdit.Text = edit ? "🔒  보기 모드로" : "✏️  편집 모드로";
         _btnToggleEdit.ForeColor = edit
-            ? System.Drawing.Color.FromArgb(255, 160, 60)   // 주황 = 편집 중
-            : System.Drawing.Color.FromArgb(80, 220, 120);  // 초록 = 보기 중
+            ? Color.FromArgb(255, 160, 60)   // 주황 = 편집 중
+            : Color.FromArgb(80, 220, 120);  // 초록 = 보기 중
         _btnToggleEdit.Checked = edit;
         // 툴팁도 상태에 맞게 갱신
         _btnToggleEdit.ToolTipText = edit
@@ -1527,11 +1606,11 @@ namespace QPDFEditor {
       // ── 썸네일 패널 배경색으로 현재 모드 시각적 표시 ────────────
       if (_thumbnailPanel != null)
         _thumbnailPanel.BackColor = edit
-            ? System.Drawing.Color.FromArgb(25, 45, 25)   // 어두운 초록 = 편집 모드
-            : System.Drawing.Color.FromArgb(28, 28, 40);  // 어두운 네이비 = 보기 모드
+            ? Color.FromArgb(25, 45, 25)   // 어두운 초록 = 편집 모드
+            : Color.FromArgb(28, 28, 40);  // 어두운 네이비 = 보기 모드
 
       // ── 타이틀바에 모드 표시 ─────────────────────────────────────
-      string fileName = System.IO.Path.GetFileName(_pdfService.FilePath);
+      string fileName = Path.GetFileName(_pdfService.FilePath);
       if (!string.IsNullOrEmpty(fileName))
         Text = edit
             ? $"PDF 편집기  [편집]  —  {fileName}"
@@ -2156,6 +2235,31 @@ namespace QPDFEditor {
           _map.Clear();
         }
       }
+    }
+
+    private Task<T> RunOperationWithProgressAsync<T>(Func<IProgress<ProgressInfo>, CancellationToken, Task<T>> work, string title) {
+      var dlg = new ProgressDialog(title);
+      var cts = new CancellationTokenSource();
+      dlg.CancelRequested += (_, _) => cts.Cancel();
+
+      var progress = new Progress<ProgressInfo>(p => {
+        try { dlg.UpdateProgress(p); } catch { }
+      });
+
+      // 작업은 백그라운드에서 실행
+      var task = Task.Run(async () => await work(progress, cts.Token), cts.Token);
+
+      // 작업 완료 시 다이얼로그 닫기 및 예외 처리(메시지 등은 호출자에서)
+      task.ContinueWith(t => {
+        try {
+          if (!dlg.IsDisposed) dlg.BeginInvoke((Action)(() => { try { dlg.Close(); } catch { } }));
+        } catch { }
+      }, TaskScheduler.Default);
+
+      // 모델레스으로 표시 (UI 차단 최소화)
+      dlg.Show(this);
+
+      return task;
     }
   }
 

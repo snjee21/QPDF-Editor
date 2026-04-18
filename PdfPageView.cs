@@ -372,18 +372,54 @@ namespace QPDFEditor {
       return new Font(family, sizePx, style, GraphicsUnit.Pixel);
     }
 
-    // 인라인 편집기는 원본 PDF 글자가 매우 작더라도
-    // 사용자가 내용을 읽고 수정할 수 있도록 최소 표시 크기를 보장한다.
-    private const float MinInlineEditorFontPx = 14f;
+    // 편집기 최소 폰트 크기(픽셀) - Acrobat과 더 비슷한 크기 허용
+    private const float MinInlineEditorFontPx = 10f;
     private const int MinInlineEditorWidth = 160;
     private const int MaxInlineEditorWidth = 520;
+    private const int MinInlineEditorMargin = 6;
 
-    private Font CreateEditingFont(TextBlock block, float overlaySizePx) {
-      float editorSizePx = Math.Max(overlaySizePx, MinInlineEditorFontPx);
-      return CreateOverlayFont(block, editorSizePx);
+    // Acrobat 스타일 대체 폰트 우선 매핑
+    private static FontFamily? ResolveAcrobatFontFamily(string? pdfFontName) {
+      // 먼저 원래 이름으로 가능한 폰트 찾기
+      var fam = ResolveInstalledFontFamily(pdfFontName);
+      if (fam != null) return fam;
+
+      string n = (pdfFontName ?? string.Empty).ToLowerInvariant();
+      // Acrobat이 흔히 사용하는 대체 맵(설치 여부에 따라 선택)
+      string[] preferred = n switch {
+        var s when s.Contains("myriad") || s.Contains("myriadpro") => new[] { "Myriad Pro", "Segoe UI", "Arial" },
+        var s when s.Contains("helvetica") || s.Contains("arial") || s.Contains("sans") => new[] { "Segoe UI", "Arial", "Calibri" },
+        var s when s.Contains("times") || s.Contains("serif") => new[] { "Times New Roman", "Georgia" },
+        var s when s.Contains("courier") || s.Contains("mono") => new[] { "Courier New", "Consolas" },
+        _ => new[] { "Segoe UI", "Arial", "Malgun Gothic", "Malgun Gothic" }
+      };
+
+      foreach (var name in preferred) {
+        var f = FontFamily.Families.FirstOrDefault(ff => string.Equals(ff.Name, name, StringComparison.OrdinalIgnoreCase));
+        if (f != null) return f;
+      }
+
+      // 마지막으로 기존 탐색 알고리즘 재시도(토큰 매칭 등)
+      return ResolveInstalledFontFamily(pdfFontName);
     }
 
-    private Size MeasureInlineEditorSize(TextBlock block, Font font, int pad) {
+    // 편집기용 폰트 생성: Acrobat과 동일하게 가능한 경우 PDF 폰트(또는 대체)를 사용하고,
+    // 크기는 오버레이(실제 렌더링 크기)를 우선하여 최소값만 보장한다.
+    private Font CreateEditingFont(TextBlock block, float overlaySizePx) {
+      // 편집기는 오버레이 크기를 우선 사용하되, 너무 작지 않도록 최소값만 보장
+      float editorSizePx = Math.Max(overlaySizePx, MinInlineEditorFontPx);
+
+      // Acrobat 매핑을 우선으로 폰트 패밀리 결정
+      FontFamily family = ResolveAcrobatFontFamily(block.FontName)
+                          ?? FontFamily.Families.FirstOrDefault(f => string.Equals(f.Name, "Segoe UI", StringComparison.OrdinalIgnoreCase))
+                          ?? FontFamily.GenericSansSerif;
+
+      FontStyle style = EnsureSupportedFontStyle(family, InferFontStyle(block.FontName));
+      return new Font(family, editorSizePx, style, GraphicsUnit.Pixel);
+    }
+
+
+    private Size MeasureInlineEditorSize(TextBlock block, Font font, int pad, int maxWidth) {
       string sample = string.IsNullOrEmpty(block.EditedText)
           ? "W"
           : block.EditedText + "  ";
@@ -399,13 +435,37 @@ namespace QPDFEditor {
       int width = Math.Max(
           Math.Max(block.ScreenBounds.Width + pad * 2, measured.Width + pad * 4),
           MinInlineEditorWidth);
-      width = Math.Min(width, MaxInlineEditorWidth);
+      width = Math.Min(width, Math.Max(MinInlineEditorWidth, maxWidth));
 
       int height = Math.Max(
           Math.Max(block.ScreenBounds.Height + pad * 2, measured.Height + pad * 4),
           30);
 
       return new Size(width, height);
+    }
+
+    private Rectangle CalculateInlineEditorBounds(TextBlock block, Size desiredSize, int pad) {
+      int pageWidth = _pageImage?.Width ?? Math.Max(ClientSize.Width, desiredSize.Width + MinInlineEditorMargin * 2);
+      int pageHeight = _pageImage?.Height ?? Math.Max(ClientSize.Height, desiredSize.Height + MinInlineEditorMargin * 2);
+
+      int x = Math.Max(block.ScreenBounds.X - pad, MinInlineEditorMargin);
+      int y = Math.Max(block.ScreenBounds.Y - Math.Max((desiredSize.Height - block.ScreenBounds.Height) / 2, pad), MinInlineEditorMargin);
+
+      int maxVisibleWidth = Math.Max(
+      MinInlineEditorWidth,
+      pageWidth - (MinInlineEditorMargin * 2));
+
+      int width = Math.Min(desiredSize.Width, maxVisibleWidth);
+      int height = Math.Min(desiredSize.Height, Math.Max(30, pageHeight - (MinInlineEditorMargin * 2)));
+
+      // 오른쪽 공간이 부족하면 왼쪽으로 당겨서 문장 시작이 더 잘 보이게 한다.
+      if (x + width > pageWidth - MinInlineEditorMargin)
+        x = Math.Max(MinInlineEditorMargin, pageWidth - MinInlineEditorMargin - width);
+
+      if (y + height > pageHeight - MinInlineEditorMargin)
+        y = Math.Max(MinInlineEditorMargin, pageHeight - MinInlineEditorMargin - height);
+
+      return new Rectangle(x, y, width, height);
     }
 
     private static Point GetScrollOffset(ScrollableControl host) =>
@@ -850,7 +910,13 @@ namespace QPDFEditor {
       float fsPx = GetBlockFontHeightPx(block);
       const int pad = 2;
       Font editFont = CreateEditingFont(block, fsPx);
-      Size editorSize = MeasureInlineEditorSize(block, editFont, pad);
+      int pageWidth = _pageImage?.Width ?? ClientSize.Width;
+      int provisionalX = Math.Max(r.X - pad, MinInlineEditorMargin);
+      int maxWidth = Math.Max(
+                              MinInlineEditorWidth,
+                              pageWidth - provisionalX - MinInlineEditorMargin);
+      Size editorSize = MeasureInlineEditorSize(block, editFont, pad, maxWidth);
+      Rectangle editorBounds = CalculateInlineEditorBounds(block, editorSize, pad);
 
       var host = GetScrollHost();
       if (host != null) {
@@ -858,19 +924,9 @@ namespace QPDFEditor {
         _editHostScrollCaptured = true;
       }
 
-      int editorX = Math.Max(r.X - pad, 0);
-      int editorY = Math.Max(r.Y - Math.Max((editorSize.Height - r.Height) / 2, pad), 0);
-
-      if (_pageImage != null) {
-        int maxX = Math.Max(0, _pageImage.Width - editorSize.Width - 2);
-        int maxY = Math.Max(0, _pageImage.Height - editorSize.Height - 2);
-        editorX = Math.Min(editorX, maxX);
-        editorY = Math.Min(editorY, maxY);
-      }
-
       _editor = new TextBox {
-        Location = new Point(editorX, editorY),
-        Size = editorSize,
+        Location = editorBounds.Location,
+        Size = editorBounds.Size,
         Text = block.EditedText,
         Font = editFont,
         BackColor = Color.FromArgb(255, 253, 215),
@@ -885,8 +941,36 @@ namespace QPDFEditor {
 
       Controls.Add(_editor);
       _editor.BringToFront();
+
+      // 포커스 및 캐럿/가시영역 초기화:
+      // - 편집 시작 시 텍스트의 시작 부분이 보이도록 캐럿을 맨 앞으로 이동하고,
+      //   필요하면 스크롤을 보정한다. (기존 SelectAll()로 인해 가끔 우측 끝으로 스크롤되는 문제 해결)
       _editor.Focus();
-      _editor.SelectAll();
+      if (!string.IsNullOrEmpty(_editor.Text)) {
+        // 기본적으로 커서를 문자열 맨 앞으로 배치 (사용자가 바로 앞에서 타이핑 가능)
+        _editor.SelectionStart = 0;
+        _editor.SelectionLength = 0;
+        try {
+          _editor.ScrollToCaret(); // 편집기 내부 스크롤이 있다면 시작 부분이 보이도록 함
+        } catch { /* 안전하게 무시 */ }
+      } else {
+        _editor.Select(); // 텍스트가 비어있으면 그대로 포커스
+      }
+
+      // 이전에는 SelectAll()을 호출했음. 필요하면 사용자 설정으로 선택 동작을 제공하도록 변경하세요.
+
+      // 편집 시작 시 문장 앞부분이 바로 보이도록 커서를 맨 앞으로 보낸다.
+      _editor.SelectionStart = 0;
+      _editor.SelectionLength = 0;
+      _editor.ScrollToCaret();
+      BeginInvoke((Action)(() => {
+        if (_editor == null || _editor.IsDisposed)
+          return;
+        _editor.SelectionStart = 0;
+        _editor.SelectionLength = 0;
+        _editor.ScrollToCaret();
+      }));
+
       if (_editHostScrollCaptured)
         RestoreHostScrollAsync(_editHostScroll);
       Invalidate(Inflate(r, 6));

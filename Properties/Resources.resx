@@ -154,4 +154,38 @@
   <data name="text_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\text_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MenuFile"><value>파일(&amp;F)</value></data>
+  <data name="MenuOpen"><value>열기(&amp;O)  Ctrl+O</value></data>
+  <data name="MenuSave"><value>저장(&amp;S)  Ctrl+S</value></data>
+  <data name="MenuSaveAs"><value>다른 이름으로 저장(&amp;A)  Ctrl+Shift+S</value></data>
+  <data name="MenuExit"><value>종료(&amp;X)</value></data>
+
+  <data name="MenuEdit"><value>편집(&amp;E)</value></data>
+  <data name="MenuFindReplace"><value>찾기 / 바꾸기(&amp;H)  Ctrl+H</value></data>
+  <data name="MenuRevertAll"><value>모든 변경 사항 되돌리기(&amp;Z)</value></data>
+
+  <data name="MenuView"><value>보기(&amp;V)</value></data>
+
+  <data name="MenuHelp"><value>도움말(&amp;?)</value></data>
+  <data name="MenuHowToUse"><value>사용 방법(&amp;H)</value></data>
+  <data name="MenuAbout"><value>정보(&amp;A)</value></data>
+
+  <data name="ToolbarOpen"><value>📂 열기</value></data>
+  <data name="ToolbarSave"><value>💾 저장</value></data>
+  <data name="ToolbarSaveAs"><value>📋 다른 이름으로</value></data>
+  <data name="ToolbarPrev"><value>◀</value></data>
+  <data name="ToolbarNext"><value>▶</value></data>
+  <data name="ToolbarPageLabelDefault"><value>– / –</value></data>
+  <data name="ToolbarZoomLabel"><value>확대: </value></data>
+  <data name="ToolbarRevert"><value>↺ 되돌리기</value></data>
+  <data name="ToolbarFind"><value>🔍 찾기/바꾸기</value></data>
+
+  <data name="Find_LabelFind"><value>찾기:</value></data>
+  <data name="Find_LabelReplace"><value>바꾸기:</value></data>
+  <data name="Find_MatchCase"><value>대소문자 구분</value></data>
+  <data name="Find_FindAll"><value>모두 찾기</value></data>
+  <data name="Find_ReplaceAll"><value>모두 바꾸기</value></data>
+  <data name="Find_Close"><value>✕</value></data>
+
+  <data name="Status_Default"><value>PDF 파일을 열어주세요. 파란 영역을 클릭하면 텍스트를 수정할 수 있습니다.</value></data>
 </root>
