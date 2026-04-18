@@ -76,9 +76,10 @@
               "RelativeDocumentMoniker": "MainForm.RecentFiles.cs",
               "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.RecentFiles.cs",
               "RelativeToolTip": "MainForm.RecentFiles.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAQwDUAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwB0AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T00:21:57.03Z"
+              "WhenOpened": "2026-04-18T00:21:57.03Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -121,9 +122,9 @@
               "Title": "MainForm.cs",
               "DocumentMoniker": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
-              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs",
-              "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAMwGEAAAAZAAAAAAAAAA==",
+              "ToolTip": "E:\\SynologyDrive\\myWorkingPrjs\\edscorp\\004.Utils\\QPDF-Editor\\MainForm.cs*",
+              "RelativeToolTip": "MainForm.cs*",
+              "ViewState": "AgIAAGIIAAAAAAAAAAAiwFICAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-05T03:24:57.955Z",
               "EditorCaption": ""

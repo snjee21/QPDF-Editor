@@ -592,13 +592,13 @@ namespace QPDFEditor {
     }
 
     // 썸네일 캐시
-    private readonly System.Collections.Generic.Dictionary<int, System.Drawing.Bitmap> _thumbCache = new();
+    private readonly LruBitmapCache _thumbCache = new LruBitmapCache(capacity: 64);
 
     private System.Drawing.Bitmap? GetThumbnail(int pageIndex) {
-      if (_thumbCache.TryGetValue(pageIndex, out var cached)) return cached;
+      if (_thumbCache.TryGet(pageIndex, out var cached)) return cached;
       try {
         var bmp = _pdfService.RenderPage(pageIndex, 0.18f);   // 18% 축소
-        _thumbCache[pageIndex] = bmp;
+        _thumbCache.Add(pageIndex, bmp);
         return bmp;
       } catch { return null; }
     }
@@ -606,8 +606,7 @@ namespace QPDFEditor {
     private void RefreshThumbnails() {
       if (_thumbnailList == null) return;
 
-      // 캐시 초기화
-      foreach (var b in _thumbCache.Values) b.Dispose();
+      // 캐시 초기화 (LRU 캐시가 내부적으로 Bitmap.Dispose를 호출)
       _thumbCache.Clear();
 
       _thumbnailList.Items.Clear();
@@ -2073,10 +2072,90 @@ namespace QPDFEditor {
         }
         _pdfService.Dispose();
         components?.Dispose();
-        foreach (var b in _thumbCache.Values) b.Dispose();
-        _thumbCache.Clear();
+
+        // LRU 캐시 정리
+        _thumbCache.Dispose();
       }
       base.Dispose(disposing);
+    }
+
+    private sealed class LruBitmapCache : IDisposable {
+      private readonly int _capacity;
+      private readonly LinkedList<KeyValuePair<int, Bitmap>> _list = new LinkedList<KeyValuePair<int, Bitmap>>();
+      private readonly Dictionary<int, LinkedListNode<KeyValuePair<int, Bitmap>>> _map = new Dictionary<int, LinkedListNode<KeyValuePair<int, Bitmap>>>();
+      private readonly object _sync = new object();
+      private bool _disposed;
+
+      public LruBitmapCache(int capacity) {
+        _capacity = Math.Max(4, capacity);
+      }
+
+      public bool TryGet(int key, out Bitmap? bmp) {
+        lock (_sync) {
+          if (_disposed) { bmp = null; return false; }
+          if (_map.TryGetValue(key, out var node)) {
+            // 사용한 항목을 맨 앞으로 (Most Recently Used)
+            _list.Remove(node);
+            _list.AddFirst(node);
+            bmp = node.Value.Value;
+            return true;
+          }
+          bmp = null;
+          return false;
+        }
+      }
+
+      public void Add(int key, Bitmap bmp) {
+        lock (_sync) {
+          if (_disposed) { try { bmp.Dispose(); } catch { } return; }
+
+          if (_map.TryGetValue(key, out var existing)) {
+            // 기존 항목 교체: 기존 Bitmap 폐기, 노드 값 교체하여 MRU로 이동
+            var oldBmp = existing.Value.Value;
+            existing.Value = new KeyValuePair<int, Bitmap>(key, bmp);
+            _list.Remove(existing);
+            _list.AddFirst(existing);
+            try { oldBmp.Dispose(); } catch { }
+            return;
+          }
+
+          var node = new LinkedListNode<KeyValuePair<int, Bitmap>>(new KeyValuePair<int, Bitmap>(key, bmp));
+          _list.AddFirst(node);
+          _map[key] = node;
+
+          if (_map.Count > _capacity) {
+            var last = _list.Last;
+            if (last != null) {
+              _list.RemoveLast();
+              _map.Remove(last.Value.Key);
+              try { last.Value.Value.Dispose(); } catch { }
+            }
+          }
+        }
+      }
+
+      public void Clear() {
+        lock (_sync) {
+          if (_disposed) return;
+          foreach (var kv in _list) {
+            try { kv.Value.Dispose(); } catch { }
+          }
+          _list.Clear();
+          _map.Clear();
+        }
+      }
+
+      public void Dispose() {
+        lock (_sync) {
+          if (_disposed) return;
+          _disposed = true;
+          foreach (var kv in _list) {
+            try { kv.Value.Dispose(); } catch { }
+          }
+          _list.Clear();
+          _map.Clear();
+        }
+      }
     }
   }
 
